@@ -1,0 +1,10 @@
+#!/bin/bash
+for i in {1..10}
+do
+	./omp < tests/$i/in > tests/$i/myout
+	echo -n "===> t$i <=== "
+	if colordiff tests/$i/myout tests/$i/out 
+	then
+		echo 'PASSED!'
+	fi
+done
